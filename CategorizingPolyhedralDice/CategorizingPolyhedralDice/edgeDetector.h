@@ -7,9 +7,11 @@ class EdgeDetector
 {
 private:
 	Mat image;
+	int maskSize;
 	float** mask;
 	void makeCleanMask(int size);
 	void makeImageEdgesBlack(Mat image);
+	Vec3b calculatePixelRGBValues(Mat img, int x, int y);
 
 
 public:
@@ -17,6 +19,7 @@ public:
 	{
 		image = img;
 		mask = NULL;
+		maskSize = 3;
 	}
 	~EdgeDetector()
 	{
